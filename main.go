@@ -1,27 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"github.com/kchunterdeluxe/algorithms/sort"
-	"log"
-	"math/rand"
-	"time"
 )
 
-func randomInts(number int) []int {
-	out := make([]int, number)
-
-	for i := 0; i < number; i++ {
-		out[i] = rand.Intn(100)
-	}
-
-	return out
-}
-
 func main() {
-	rand.Seed(time.Now().UTC().UnixNano())
-	input := randomInts(100000)
+	input := []int{5, 10, 3, 17, 9, 34}
 
-	start := time.Now()
-	sort.Bubble(input)
-	log.Printf("Time elapsed: %f seconds\n", time.Since(start).Seconds())
+	output := sort.Bubble(input)
+
+	fmt.Printf("%v", output)
 }
