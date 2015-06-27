@@ -2,13 +2,26 @@ package main
 
 import (
 	"fmt"
-	"github.com/kchunterdeluxe/algorithms/sort"
+	"github.com/kchunterdeluxe/fundamentals/sort"
+	"math/rand"
+	"time"
 )
 
 func main() {
-	input := []int{5, 10, 3, 17, 9, 34}
+	items := 100000
+	input := rand.Perm(items)
 
-	output := sort.Bubble(input)
+	// Bubble Sort
+	start := time.Now()
 
-	fmt.Printf("%v", output)
+	fmt.Printf("Starting bubble sort on %d items...\n", items)
+	sort.Bubble(input)
+	fmt.Printf("Bubble sort took %s to complete on %d items.\n\n", time.Since(start), items)
+
+	// Selection Sort
+	start = time.Now()
+
+	fmt.Printf("Starting selection sort on %d items...\n", items)
+	sort.Selection(input)
+	fmt.Printf("Selection sort took %s to complete on %d items.\n\n", time.Since(start), items)
 }

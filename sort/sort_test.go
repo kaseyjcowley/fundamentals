@@ -1,7 +1,6 @@
 package sort
 
 import (
-	// "log"
 	"math/rand"
 	"reflect"
 	gsort "sort"
@@ -65,6 +64,18 @@ func TestBubble(t *testing.T) {
 
 	for _, test := range tests {
 		output := Bubble(test.input)
+
+		if reflect.DeepEqual(output, test.output) == false {
+			t.Errorf("Expected %v, got %v", test.output, output)
+		}
+	}
+
+}
+
+func TestSelection(t *testing.T) {
+
+	for _, test := range tests {
+		output := Selection(test.input)
 
 		if reflect.DeepEqual(output, test.output) == false {
 			t.Errorf("Expected %v, got %v", test.output, output)
